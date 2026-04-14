@@ -17,14 +17,13 @@ return new class extends Migration
             $table->string('gateway');
             $table->decimal('amount', 10, 2);
             $table->string('currency', 3)->default('SAR');
-            $table->enum('status', ['pending', 'success', 'failed', 'refunded']);
+            $table->string('status')->default('pending');
             $table->string('gateway_transaction_id')->nullable();
             $table->string('city')->nullable();
             $table->string('module')->nullable();
             $table->timestamps();
             
             $table->index('user_id');
-            $table->timestamps();
         });
     }
 
