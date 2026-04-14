@@ -11,6 +11,7 @@ class MadaGateway implements PaymentGatewayInterface
             'success' => true,
             'transaction_id' => 'mada_' . uniqid(),
             'message' => 'Payment processed successfully with Mada.',
+            'status' => 'completed',
         ];
     }
 

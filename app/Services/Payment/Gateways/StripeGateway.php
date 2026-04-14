@@ -11,6 +11,7 @@ class StripeGateway implements PaymentGatewayInterface
             'success' => true,
             'transaction_id' => 'stripe_' . uniqid(),
             'message' => 'Payment processed successfully with Stripe.',
+            'status' => 'completed',
         ];
     }
 

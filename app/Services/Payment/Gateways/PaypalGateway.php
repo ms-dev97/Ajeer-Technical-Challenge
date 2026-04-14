@@ -11,6 +11,7 @@ class PaypalGateway implements PaymentGatewayInterface
             'success' => true,
             'transaction_id' => 'paypal_' . uniqid(),
             'message' => 'Payment processed successfully with PayPal.',
+            'status' => 'completed',
         ];
     }
 

@@ -20,11 +20,11 @@ class PaymentGatewayResolver
             return null;
         }
 
-        if (!in_array('*', $gatewayConfig['allowed_cities']) || !in_array($city, $gatewayConfig['allowed_cities'])) {
+        if (!in_array('*', $gatewayConfig['allowed_cities']) && !in_array($city, $gatewayConfig['allowed_cities'])) {
             return null;
         }
 
-        if (!in_array('*', $gatewayConfig['allowed_modules']) || !in_array($module, $gatewayConfig['allowed_modules'])) {
+        if (!in_array('*', $gatewayConfig['allowed_modules']) && !in_array($module, $gatewayConfig['allowed_modules'])) {
             return null;
         }
 
