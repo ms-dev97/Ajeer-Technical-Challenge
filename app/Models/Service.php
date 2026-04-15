@@ -15,4 +15,9 @@ class Service extends Model
             'price' => 'decimal:2',
         ];
     }
+
+    public function cartItems()
+    {
+        return $this->morphMany(CartItem::class, 'cartable');
+    }
 }

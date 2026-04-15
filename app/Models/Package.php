@@ -20,4 +20,9 @@ class Package extends Model
     {
         return $this->belongsToMany(Service::class, 'package_services');
     }
+
+    public function cartItems()
+    {
+        return $this->morphMany(CartItem::class, 'cartable');
+    }
 }

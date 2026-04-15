@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\Api\V1\CartController;
 use App\Http\Controllers\Api\V1\PackageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\PaymentController;
@@ -21,4 +22,9 @@ Route::middleware('auth:sanctum')->group(function() {
     // Package routes
     Route::get('packages', [PackageController::class, 'index']);
     Route::get('packages/{package}', [PackageController::class, 'show']);
+
+    // Cart routes (protected by subscription middleware)
+    Route::middleware('subscribed')->group(function() {
+        Route::post('cart/add', [CartController::class, 'addToCart']);
+    });
 });
