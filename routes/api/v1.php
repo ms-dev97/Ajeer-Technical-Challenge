@@ -26,5 +26,6 @@ Route::middleware('auth:sanctum')->group(function() {
     // Cart routes (protected by subscription middleware)
     Route::middleware('subscribed')->group(function() {
         Route::post('cart/add', [CartController::class, 'addToCart']);
+        Route::post('cart/checkout', [CartController::class, 'checkout']);
     });
 });
