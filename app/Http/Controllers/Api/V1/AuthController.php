@@ -34,7 +34,21 @@ class AuthController extends Controller
             'password' => $request->password,
         ]);
 
-        return ResponseHelper::success(message: 'User registered successfully', statusCode: 201);
+        // Create trial subscription for the user
+        $user->subscription()->create([
+            'status' => 'trial',
+            'trial_ends_at' => now()->addDays(14),
+            'starts_at' => now(),
+        ]);
+
+        // Create token for the user
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return ResponseHelper::success(
+            data: ['access_token' => $token],
+            message: 'User registered successfully',
+            statusCode: 201
+        );
     }
 
     public function login(Request $request)
