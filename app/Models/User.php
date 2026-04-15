@@ -30,4 +30,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function subscription()
+    {
+        return $this->hasOne(Subscription::class);
+    }
+
+    public function hasActiveSubscription(): bool
+    {
+        $subscription = $this->subscription;
+
+        if (! $subscription) return false;
+
+        return ($subscription->status == 'paid' && $subscription->ends_at > now()) ||
+               ($subscription->status == 'trial' && $subscription->trial_ends_at > now());
+    }
 }
