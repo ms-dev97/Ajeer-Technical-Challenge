@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('cart_items', function (Blueprint $table) {
             $table->id();
             $table->morphs('cartable'); // package or service
-            $table->smallInteger('quantity')->default(1);
             $table->decimal('unit_price', 8, 2)->default(0);
             $table->foreignId('cart_id')->constrained()->onDelete('cascade');
             $table->foreignId('time_slot_id')->nullable()->constrained()->onDelete('set null');
             $table->date('booking_date');
             $table->timestamps();
+
+            $table->index('cart_id');
         });
     }
 

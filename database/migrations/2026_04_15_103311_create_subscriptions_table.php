@@ -19,6 +19,8 @@ return new class extends Migration
             $table->date('starts_at')->nullable();
             $table->date('ends_at')->nullable();
             $table->timestamps();
+
+            $table->index('user_id');
         });
     }
 

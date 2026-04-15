@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreignId('time_slot_id')->nullable()->constrained()->onDelete('set null');
             $table->string('status')->default('pending'); // pending, confirmed, completed, cancelled
             $table->timestamps();
+
+            $table->index(['service_id', 'booking_date', 'time_slot_id']);
         });
     }
 
