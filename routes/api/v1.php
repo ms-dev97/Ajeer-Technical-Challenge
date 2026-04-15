@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\Api\V1\PackageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\PaymentController;
 use App\Http\Controllers\Api\V1\ServiceController;
@@ -16,4 +17,8 @@ Route::middleware('auth:sanctum')->group(function() {
     // Service routes
     Route::get('services', [ServiceController::class, 'index']);
     Route::get('services/{service}', [ServiceController::class, 'show']);
+
+    // Package routes
+    Route::get('packages', [PackageController::class, 'index']);
+    Route::get('packages/{package}', [PackageController::class, 'show']);
 });
