@@ -1,0 +1,279 @@
+{
+  "info": {
+    "_postman_id": "b485fe94-1321-4631-8a8a-b1b78848e2c5",
+    "name": "Ajeer Technical Challenge",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "21474010"
+  },
+  "item": [
+    {
+      "name": "V1",
+      "item": [
+        {
+          "name": "register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Mohammed Salem\",\r\n    \"email\": \"mohammed@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"password_confirmation\": \"password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/{{version}}/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "{{version}}",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"mohammed@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/{{version}}/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "{{version}}",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "process payment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"gateway_key\": \"mada\",\r\n    \"city\": \"Jeddah\",\r\n    \"module\": \"maintenance\",\r\n    \"amount\": 10\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/{{version}}/payments/process",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "{{version}}",
+                "payments",
+                "process"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "payments history",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/{{version}}/payments/history",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "{{version}}",
+                "payments",
+                "history"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "services",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/{{version}}/services",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "{{version}}",
+                "services"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "single service",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/{{version}}/services/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "{{version}}",
+                "services",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "packages",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/{{version}}/packages",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "{{version}}",
+                "packages"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "single package",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/{{version}}/packages/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "{{version}}",
+                "packages",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "add to cart",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"cartable_type\": \"package\",\r\n    \"cartable_id\": 1,\r\n    \"booking_date\": \"2026-04-15\",\r\n    \"time_slot_id\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/{{version}}/cart/add",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "{{version}}",
+                "cart",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "checkout",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/{{version}}/cart/checkout",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "{{version}}",
+                "cart",
+                "checkout"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "1|ikjwJk69OQJR0TvoDwiYOGgjxtVSo0dLCOKo4VFz277683bb",
+            "type": "string"
+          }
+        ]
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              "pm.request.headers.add({\r",
+              "    key: 'Accept',\r",
+              "    value: 'application/json'\r",
+              "});\r",
+              "\r",
+              "pm.request.headers.add({\r",
+              "    key: 'Content-Type',\r",
+              "    value: 'application/json'\r",
+              "});"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
